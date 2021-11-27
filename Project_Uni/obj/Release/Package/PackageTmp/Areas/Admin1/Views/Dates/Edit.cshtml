@@ -1,0 +1,30 @@
+﻿@model DataLayer.Date
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.DateId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DateName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.DateName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DateName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-4 col-md-4">
+                <input type="submit" value="ثبت تغييرات" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}

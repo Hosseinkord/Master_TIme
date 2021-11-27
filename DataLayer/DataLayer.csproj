@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{444F91B2-B590-4AA0-97A1-2BBB1F60C868}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataLayer</RootNamespace>
+    <AssemblyName>DataLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Context\Pr_UniContext.cs" />
+    <Compile Include="Migrations\202102040856309_Make a Section1.cs" />
+    <Compile Include="Migrations\202102040856309_Make a Section1.Designer.cs">
+      <DependentUpon>202102040856309_Make a Section1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102050758038_Make a Section2.cs" />
+    <Compile Include="Migrations\202102050758038_Make a Section2.Designer.cs">
+      <DependentUpon>202102050758038_Make a Section2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102091538232_Make a Section3.cs" />
+    <Compile Include="Migrations\202102091538232_Make a Section3.Designer.cs">
+      <DependentUpon>202102091538232_Make a Section3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102091608426_Make a Section4.cs" />
+    <Compile Include="Migrations\202102091608426_Make a Section4.Designer.cs">
+      <DependentUpon>202102091608426_Make a Section4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102100841463_Make a Section5.cs" />
+    <Compile Include="Migrations\202102100841463_Make a Section5.Designer.cs">
+      <DependentUpon>202102100841463_Make a Section5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102121701186_Make A Section6%28Help%29.cs" />
+    <Compile Include="Migrations\202102121701186_Make A Section6%28Help%29.Designer.cs">
+      <DependentUpon>202102121701186_Make A Section6%28Help%29.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102141603225_Make a Section7%28Help7%29.cs" />
+    <Compile Include="Migrations\202102141603225_Make a Section7%28Help7%29.Designer.cs">
+      <DependentUpon>202102141603225_Make a Section7%28Help7%29.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102141611352_Help2.cs" />
+    <Compile Include="Migrations\202102141611352_Help2.Designer.cs">
+      <DependentUpon>202102141611352_Help2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102181512298_ENd.cs" />
+    <Compile Include="Migrations\202102181512298_ENd.Designer.cs">
+      <DependentUpon>202102181512298_ENd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102201445258_Enter &amp;&amp; Cal_End.cs" />
+    <Compile Include="Migrations\202102201445258_Enter &amp;&amp; Cal_End.Designer.cs">
+      <DependentUpon>202102201445258_Enter &amp;&amp; Cal_End.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102220350067_Add Num Of Class.cs" />
+    <Compile Include="Migrations\202102220350067_Add Num Of Class.Designer.cs">
+      <DependentUpon>202102220350067_Add Num Of Class.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102230507496_Validation.cs" />
+    <Compile Include="Migrations\202102230507496_Validation.Designer.cs">
+      <DependentUpon>202102230507496_Validation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102250736268_Login.cs" />
+    <Compile Include="Migrations\202102250736268_Login.Designer.cs">
+      <DependentUpon>202102250736268_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102261835475_Labrator.cs" />
+    <Compile Include="Migrations\202102261835475_Labrator.Designer.cs">
+      <DependentUpon>202102261835475_Labrator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102271556346_Labratoryy.cs" />
+    <Compile Include="Migrations\202102271556346_Labratoryy.Designer.cs">
+      <DependentUpon>202102271556346_Labratoryy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103031314383_Cal.cs" />
+    <Compile Include="Migrations\202103031314383_Cal.Designer.cs">
+      <DependentUpon>202103031314383_Cal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103051245049_Add MA &amp; LE HElps.cs" />
+    <Compile Include="Migrations\202103051245049_Add MA &amp; LE HElps.Designer.cs">
+      <DependentUpon>202103051245049_Add MA &amp; LE HElps.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103081216099_Enter.cs" />
+    <Compile Include="Migrations\202103081216099_Enter.Designer.cs">
+      <DependentUpon>202103081216099_Enter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Cal_End.cs" />
+    <Compile Include="Models\Date.cs" />
+    <Compile Include="Models\Enter.cs" />
+    <Compile Include="Models\Help.cs" />
+    <Compile Include="Models\Help2.cs" />
+    <Compile Include="Models\Labratoryy.cs" />
+    <Compile Include="Models\LEHe.cs" />
+    <Compile Include="Models\Lesson.cs" />
+    <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\MAHe.cs" />
+    <Compile Include="Models\Master.cs" />
+    <Compile Include="Models\MasterDate.cs" />
+    <Compile Include="Models\MasterLesson.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ICal_EndRepository.cs" />
+    <Compile Include="Repositories\IDateRepository.cs" />
+    <Compile Include="Repositories\IEnterRepository.cs" />
+    <Compile Include="Repositories\IHelp2Repository.cs" />
+    <Compile Include="Repositories\IHelpRepository.cs" />
+    <Compile Include="Repositories\ILabratorRepository.cs" />
+    <Compile Include="Repositories\ILEHeRepository.cs" />
+    <Compile Include="Repositories\ILessonRepository.cs" />
+    <Compile Include="Repositories\ILoginRepository.cs" />
+    <Compile Include="Repositories\IMasterLessonRepository.cs" />
+    <Compile Include="Repositories\IMasterRepository.cs" />
+    <Compile Include="Repositories\IMasterDateRepository.cs" />
+    <Compile Include="Repositories\IMEHeRepository.cs" />
+    <Compile Include="Services\Cal_EndRepository.cs" />
+    <Compile Include="Services\DateRepository.cs" />
+    <Compile Include="Services\EnterRepository.cs" />
+    <Compile Include="Services\Help2Repository.cs" />
+    <Compile Include="Services\HelpRepository.cs" />
+    <Compile Include="Services\LabratoryRepository.cs" />
+    <Compile Include="Services\LEHeRepository.cs" />
+    <Compile Include="Services\LessonRepository.cs" />
+    <Compile Include="Services\LoginRepository.cs" />
+    <Compile Include="Services\MAHeRepository.cs" />
+    <Compile Include="Services\MasterDateRepository.cs" />
+    <Compile Include="Services\MasterLessonRepository.cs" />
+    <Compile Include="Services\MasterRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202102040856309_Make a Section1.resx">
+      <DependentUpon>202102040856309_Make a Section1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102050758038_Make a Section2.resx">
+      <DependentUpon>202102050758038_Make a Section2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102091538232_Make a Section3.resx">
+      <DependentUpon>202102091538232_Make a Section3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102091608426_Make a Section4.resx">
+      <DependentUpon>202102091608426_Make a Section4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102100841463_Make a Section5.resx">
+      <DependentUpon>202102100841463_Make a Section5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102121701186_Make A Section6%28Help%29.resx">
+      <DependentUpon>202102121701186_Make A Section6%28Help%29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102141603225_Make a Section7%28Help7%29.resx">
+      <DependentUpon>202102141603225_Make a Section7%28Help7%29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102141611352_Help2.resx">
+      <DependentUpon>202102141611352_Help2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102181512298_ENd.resx">
+      <DependentUpon>202102181512298_ENd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102201445258_Enter &amp;&amp; Cal_End.resx">
+      <DependentUpon>202102201445258_Enter &amp;&amp; Cal_End.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102220350067_Add Num Of Class.resx">
+      <DependentUpon>202102220350067_Add Num Of Class.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102230507496_Validation.resx">
+      <DependentUpon>202102230507496_Validation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102250736268_Login.resx">
+      <DependentUpon>202102250736268_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102261835475_Labrator.resx">
+      <DependentUpon>202102261835475_Labrator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102271556346_Labratoryy.resx">
+      <DependentUpon>202102271556346_Labratoryy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103031314383_Cal.resx">
+      <DependentUpon>202103031314383_Cal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103051245049_Add MA &amp; LE HElps.resx">
+      <DependentUpon>202103051245049_Add MA &amp; LE HElps.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103081216099_Enter.resx">
+      <DependentUpon>202103081216099_Enter.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

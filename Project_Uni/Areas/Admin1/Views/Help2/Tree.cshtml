@@ -1,0 +1,444 @@
+﻿@model IEnumerable<DataLayer.Help2>
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
+    <meta name="author" content="Coderthemes">
+
+    <!-- App Favicon -->
+    <link rel="shortcut icon" href="~/Content/assets/images/favicon.ico">
+
+    <!-- App title -->
+    <title>پروژه دانشگاه</title>
+
+    <!-- DataTables -->
+    <link href="~/Content/assets/plugins/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/plugins/datatables/buttons.bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/plugins/datatables/fixedHeader.bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/plugins/datatables/responsive.bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/plugins/datatables/scroller.bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App CSS -->
+    <link href="~/Content/assets/css/bootstrap-rtl.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/css/core.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/css/components.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/css/pages.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/css/menu.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/css/responsive.css" rel="stylesheet" type="text/css" />
+
+    <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="~/Content/assets/js/modernizr.min.js"></script>
+
+</head>
+
+
+<body class="fixed-left">
+
+    <!-- Begin page -->
+    <div id="wrapper">
+
+        <!-- Top Bar Start -->
+        <div class="topbar">
+
+            <!-- LOGO -->
+            <div class="topbar-left">
+                <a href="#" class="logo">
+                    <span>
+                        استاد
+                        @{
+                            int x = 0;
+
+                            foreach (var lo in ViewBag.Login)
+                            {
+                                if (lo.Role == 1)
+                                {
+                                    x = lo.UserName;
+                                }
+                            }
+
+                            foreach (var Ma in ViewBag.Master)
+                            {
+                                if (x == Ma.MasterCode)
+                                {
+                                    @Ma.MasterName
+                                }
+                            }
+                        }
+                    </span>
+                    <i class="zmdi zmdi-layers"></i>
+                </a>
+            </div>
+
+            <!-- Button mobile view to collapse sidebar menu -->
+            <div class="navbar navbar-default" role="navigation">
+                <div class="container">
+
+                    <!-- Page title -->
+                    <ul class="nav navbar-nav navbar-left">
+                        <li>
+                            <button class="button-menu-mobile open-left">
+                                <i class="zmdi zmdi-menu"></i>
+                            </button>
+                        </li>
+                        <li>
+                            <h4 class="page-title">فرم دختی</h4>
+                        </li>
+                    </ul>
+                </div><!-- end container -->
+            </div><!-- end navbar -->
+        </div>
+        <!-- Top Bar End -->
+        <!-- ========== Left Sidebar Start ========== -->
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="left side-menu">
+            <div class="sidebar-inner slimscrollleft">
+
+                <!-- User -->
+                <div class="user-box">
+                    <h5><a href="http://localhost:61776/Vorod/Login">خارج شويد</a> </h5>
+                    <ul class="list-inline">
+                        <li>
+                            <a href="http://localhost:61776/Vorod/Login" class="text-custom">
+                                <i class="zmdi zmdi-power"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- End User -->
+                <!-- End User -->
+                <!--- Sidemenu -->
+                <div id="sidebar-menu">
+                    <ul>
+                        <li class="text-muted menu-title">دسته بندی ها</li>
+
+                        <li>
+                            <a href="/Admin1/Dates/Index" class="waves-effect"><i class="zmdi zmdi-time"></i> <span> زمان </span> </a>
+                        </li>
+
+                        <li>
+                            <a href="/Admin1/Masters/Index" class="waves-effect"><i class="zmdi zmdi-graduation-cap"></i> <span>اساتید</span> </a>
+                        </li>
+
+                        <li>
+                            <a href="/Admin1/Lessons/Index" class="waves-effect"><i class="zmdi zmdi-collection-text"></i> <span>دروس</span> </a>
+                        </li>
+                        <li>
+                            <a href="/Admin1/Logins/Index" class="waves-effect "><i class="fa fa-users"></i> <span>کاربران</span> </a>
+                        </li>
+                        <li>
+                            <a href="/Admin1/Labratoryies/Index" class="waves-effect"><i class=" ti-paint-bucket"></i> <span>آزمایشگاه</span> </a>
+                        </li>
+                        <li>
+                            <a href="/Admin1/MasterDates/Index" class="waves-effect"><i class="zmdi zmdi-calendar"></i> <span>استاد-روز</span> </a>
+                        </li>
+
+                        <li>
+                            <a href="/Admin1/MasterLessons/Index" class="waves-effect"><i class="zmdi zmdi-label"></i> <span>استاد-درس</span> </a>
+                        </li>
+
+
+                        <li class="has_sub">
+                            <a href="javascript:void(0);" class="waves-effect active"><i class="zmdi zmdi-run"></i><span class="label label-warning pull-right">3</span><span> مراحل اجرای الگویتم </span> </a>
+                            <ul class="list-unstyled">
+                                <li><a href="/Admin1/Helps/Create">جدول استادان و روزها</a></li>
+                                <li><a href="/Admin1/Help2/Create">جدول استادان و روزها و درس ها</a></li>
+                                <li class="active"><a href="/Admin1/Help2/Tree">فرم درختی</a></li>
+                                <li ><a href="/Admin1/Cal_End/Create">جداول نهایی</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Left Sidebar End -->
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="content-page">
+            <!-- Start content -->
+            <div class="content">
+                <div class="container">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card-box">
+
+                                <div id="dragTree">
+                                    <ul>
+                                        <li>
+                                            شنبه
+                                            <ul>
+                                                @foreach (var Date in ViewBag.Date)
+                                                {
+                                                    if (Date.DateId > 0 && Date.DateId <= 5)
+                                                    {
+                                                        <li data-jstree='{"selected":false,"type":"file"}'>
+                                                            @Date.DateName
+                                                            <ul>
+                                                                @foreach (var cal in ViewBag.Cal)
+                                                                {
+                                                                    if (cal.Time == Date.DateId)
+                                                                    {
+                                                                        foreach (var Master in ViewBag.Master)
+                                                                        {
+                                                                            if (cal.Master== Master.MasterCode)
+                                                                            {
+                                                                                <li data-jstree='{"opened":true}'>
+                                                                                    @Master.MasterName
+                                                                                    <ul>
+                                                                                        @foreach (var MasterLesson in ViewBag.MasterLesson)
+                                                                                        {
+                                                                                            foreach (var Lesson in ViewBag.Lesson)
+                                                                                            {
+                                                                                                if (MasterLesson.MasterCode == Master.MasterCode && MasterLesson.LessonCode == Lesson.LessonCode)
+                                                                                                {
+                                                                                                    <li data-jstree='{"type":"file"}'>@Lesson.LessonName</li>
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    </ul>
+                                                                                </li>
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            </ul>
+                                                        </li>
+                                                    }
+                                                }
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            یکشنبه
+                                            <ul>
+                                                @foreach (var Date in ViewBag.Date)
+                                                {
+                                                    if (Date.DateId > 5 && Date.DateId <= 10)
+                                                    {
+                                                        <li data-jstree='{"selected":false,"type":"file"}'>
+                                                            @Date.DateName
+                                                            <ul>
+                                                                @foreach (var cal in ViewBag.Cal)
+                                                                {
+                                                                    if (cal.Time == Date.DateId)
+                                                                    {
+                                                                        foreach (var Master in ViewBag.Master)
+                                                                        {
+                                                                            if (cal.Master == Master.MasterCode)
+                                                                            {
+                                                                                <li data-jstree='{"opened":true}'>
+                                                                                    @Master.MasterName
+                                                                                    <ul>
+                                                                                        @foreach (var MasterLesson in ViewBag.MasterLesson)
+                                                                                        {
+                                                                                            foreach (var Lesson in ViewBag.Lesson)
+                                                                                            {
+                                                                                                if (MasterLesson.MasterCode == Master.MasterCode && MasterLesson.LessonCode == Lesson.LessonCode)
+                                                                                                {
+                                                                                                    <li data-jstree='{"type":"file"}'>@Lesson.LessonName</li>
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    </ul>
+                                                                                </li>
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            </ul>
+                                                        </li>
+                                                    }
+                                                }
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            دوشنبه
+                                            <ul>
+                                                @foreach (var Date in ViewBag.Date)
+                                                {
+                                                    if (Date.DateId > 10 && Date.DateId <= 15)
+                                                    {
+                                                        <li data-jstree='{"selected":false,"type":"file"}'>
+                                                            @Date.DateName
+                                                            <ul>
+                                                                @foreach (var cal in ViewBag.Cal)
+                                                                {
+                                                                    if (cal.Time == Date.DateId)
+                                                                    {
+                                                                        foreach (var Master in ViewBag.Master)
+                                                                        {
+                                                                            if (cal.Master == Master.MasterCode)
+                                                                            {
+                                                                                <li data-jstree='{"opened":true}'>
+                                                                                    @Master.MasterName
+                                                                                    <ul>
+                                                                                        @foreach (var MasterLesson in ViewBag.MasterLesson)
+                                                                                        {
+                                                                                            foreach (var Lesson in ViewBag.Lesson)
+                                                                                            {
+                                                                                                if (MasterLesson.MasterCode == Master.MasterCode && MasterLesson.LessonCode == Lesson.LessonCode)
+                                                                                                {
+                                                                                                    <li data-jstree='{"type":"file"}'>@Lesson.LessonName</li>
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    </ul>
+                                                                                </li>
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            </ul>
+                                                        </li>
+                                                    }
+                                                }
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            سه شنبه
+                                            <ul>
+                                                @foreach (var Date in ViewBag.Date)
+                                                {
+                                                    if (Date.DateId > 15 && Date.DateId <= 20)
+                                                    {
+                                                        <li data-jstree='{"selected":false,"type":"file"}'>
+                                                            @Date.DateName
+                                                            <ul>
+                                                                @foreach (var cal in ViewBag.Cal)
+                                                                {
+                                                                    if (cal.Time == Date.DateId)
+                                                                    {
+                                                                        foreach (var Master in ViewBag.Master)
+                                                                        {
+                                                                            if (cal.Master == Master.MasterCode)
+                                                                            {
+                                                                                <li data-jstree='{"opened":true}'>
+                                                                                    @Master.MasterName
+                                                                                    <ul>
+                                                                                        @foreach (var MasterLesson in ViewBag.MasterLesson)
+                                                                                        {
+                                                                                            foreach (var Lesson in ViewBag.Lesson)
+                                                                                            {
+                                                                                                if (MasterLesson.MasterCode == Master.MasterCode && MasterLesson.LessonCode == Lesson.LessonCode)
+                                                                                                {
+                                                                                                    <li data-jstree='{"type":"file"}'>@Lesson.LessonName</li>
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    </ul>
+                                                                                </li>
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            </ul>
+                                                        </li>
+                                                    }
+                                                }
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            چهارشنبه
+                                            <ul>
+                                                @foreach (var Date in ViewBag.Date)
+                                                {
+                                                    if (Date.DateId > 20 && Date.DateId <= 25)
+                                                    {
+                                                        <li data-jstree='{"selected":false,"type":"file"}'>
+                                                            @Date.DateName
+                                                            <ul>
+                                                                @foreach (var cal in ViewBag.Cal)
+                                                                {
+                                                                    if (cal.Time == Date.DateId)
+                                                                    {
+                                                                        foreach (var Master in ViewBag.Master)
+                                                                        {
+                                                                            if (cal.Master == Master.MasterCode)
+                                                                            {
+                                                                                <li data-jstree='{"opened":true}'>
+                                                                                    @Master.MasterName
+                                                                                    <ul>
+                                                                                        @foreach (var MasterLesson in ViewBag.MasterLesson)
+                                                                                        {
+                                                                                            foreach (var Lesson in ViewBag.Lesson)
+                                                                                            {
+                                                                                                if (MasterLesson.MasterCode == Master.MasterCode && MasterLesson.LessonCode == Lesson.LessonCode)
+                                                                                                {
+                                                                                                    <li data-jstree='{"type":"file"}'>@Lesson.LessonName</li>
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    </ul>
+                                                                                </li>
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            </ul>
+                                                        </li>
+                                                    }
+                                                }
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div><!-- end col -->
+                        </div>
+                    </div>
+                    <!-- end row -->
+
+
+                </div> <!-- container -->
+
+            </div> <!-- content -->
+
+
+        </div>
+
+
+
+    </div>
+    <!-- END wrapper -->
+
+
+
+    <script>
+        var resizefunc = [];
+    </script>
+
+    <!-- jQuery  -->
+    <script src="~/Content/assets/js/jquery.min.js"></script>
+    <script src="~/Content/assets/js/bootstrap-rtl.min.js"></script>
+    <script src="~/Content/assets/js/detect.js"></script>
+    <script src="~/Content/assets/js/fastclick.js"></script>
+    <script src="~/Content/assets/js/jquery.slimscroll.js"></script>
+    <script src="~/Content/assets/js/jquery.blockUI.js"></script>
+    <script src="~/Content/assets/js/waves.js"></script>
+    <script src="~/Content/assets/js/jquery.nicescroll.js"></script>
+    <script src="~/Content/assets/js/jquery.scrollTo.min.js"></script>
+
+    <!-- Tree view js -->
+    <script src="~/Content/assets/plugins/jstree/jstree.min.js"></script>
+    <script src="~/Content/assets/pages/jquery.tree.js"></script>
+
+    <!-- App js -->
+    <script src="~/Content/assets/js/jquery.core.js"></script>
+    <script src="~/Content/assets/js/jquery.app.js"></script>
+
+</body>
+</html>

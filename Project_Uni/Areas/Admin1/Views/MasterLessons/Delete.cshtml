@@ -1,0 +1,80 @@
+﻿@model DataLayer.MasterLesson
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+<h3>
+    آیا میخواهید درس 
+    @foreach (var Lesson in ViewBag.Lesson)
+            {
+                if (Model.LessonCode == Lesson.LessonCode)
+                {
+                    @Lesson.LessonName
+                }
+    }
+    انتخاب شده توسط استاد
+    @foreach (var Master in ViewBag.Master)
+    {
+        if (Model.MasterCode == Master.MasterCode)
+        {
+            @Master.MasterName
+        }
+    }
+    را حذف کنید؟
+
+</h3>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Lesson.LessonName)
+        </dt>
+
+        <dd>
+            @foreach (var Lesson in ViewBag.Lesson)
+            {
+                if (Model.LessonCode == Lesson.LessonCode)
+                {
+                    @Lesson.LessonName
+                }
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Master.MasterName)
+        </dt>
+
+        <dd>
+            @foreach (var Master in ViewBag.Master)
+                {
+                    if (Model.MasterCode == Master.MasterCode)
+                        {
+                        @Master.MasterName
+                        }
+                }
+        </dd>
+
+        <dt>
+             اولویت
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prefer)
+        </dd>
+
+    </dl>
+
+
+        <div class="form-actions no-color">
+            <input type="submit" value="حذف" class="btn btn-warning" /> |
+            @Html.ActionLink("نمایش لیست دروس هر استاد ", "Index")
+        </div>
+</div>
+}

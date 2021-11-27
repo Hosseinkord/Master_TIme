@@ -1,0 +1,25 @@
+﻿@model DataLayer.Date
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>جزئبات زمان</h2>
+
+<div>
+    <br />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DateName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("ويرايش زمان", "Edit", new { id = Model.DateId }) |
+    @Html.ActionLink("نمايش ليست زمان", "Index")
+</p>

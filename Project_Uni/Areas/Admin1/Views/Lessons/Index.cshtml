@@ -1,0 +1,351 @@
+﻿@model IEnumerable<DataLayer.Lesson>
+
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
+    <meta name="author" content="Coderthemes">
+
+    <!-- App Favicon -->
+    <link rel="shortcut icon" href="~/Content/assets/images/favicon.ico">
+
+    <!-- App title -->
+    <title>سیستم مدیریت و برنامه ریزی ترم دانشگاه</title>
+
+    <!-- DataTables -->
+    <link href="~/Content/assets/plugins/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/plugins/datatables/buttons.bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/plugins/datatables/fixedHeader.bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/plugins/datatables/responsive.bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/plugins/datatables/scroller.bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App CSS -->
+    <link href="~/Content/assets/css/bootstrap-rtl.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/css/core.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/css/components.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/css/pages.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/css/menu.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/css/responsive.css" rel="stylesheet" type="text/css" />
+
+    <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="~/Content/assets/js/modernizr.min.js"></script>
+
+</head>
+
+
+<body class="fixed-left">
+
+    <!-- Begin page -->
+    <div id="wrapper">
+
+        <!-- Top Bar Start -->
+        <div class="topbar">
+
+            <!-- LOGO -->
+            <div class="topbar-left">
+                <a href="#" class="logo">
+                    <span>
+                        استاد
+                        @{
+                            int x = 0;
+
+                            foreach (var lo in ViewBag.Login)
+                            {
+                                if (lo.Role == 1)
+                                {
+                                    x = lo.UserName;
+                                }
+                            }
+
+                            foreach (var Ma in ViewBag.Master)
+                            {
+                                if (x == Ma.MasterCode)
+                                {
+                                    @Ma.MasterName
+                                }
+                            }
+                        }
+                    </span>
+                    <i class="zmdi zmdi-layers"></i>
+                </a>
+            </div>
+
+            <!-- Button mobile view to collapse sidebar menu -->
+            <div class="navbar navbar-default" role="navigation">
+                <div class="container">
+
+                    <!-- Page title -->
+                    <ul class="nav navbar-nav navbar-left">
+                        <li>
+                            <button class="button-menu-mobile open-left">
+                                <i class="zmdi zmdi-menu"></i>
+                            </button>
+                        </li>
+                        <li>
+                            <h4 class="page-title">دروس</h4>
+                        </li>
+                    </ul>
+                </div><!-- end container -->
+            </div><!-- end navbar -->
+        </div>
+        <!-- Top Bar End -->
+        <!-- ========== Left Sidebar Start ========== -->
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="left side-menu">
+            <div class="sidebar-inner slimscrollleft">
+
+                <!-- User -->
+                <div class="user-box">
+                    <h5><a href="http://localhost:61776/Vorod/Login">خارج شويد</a> </h5>
+                    <ul class="list-inline">
+                        <li>
+                            <a href="http://localhost:61776/Vorod/Login" class="text-custom">
+                                <i class="zmdi zmdi-power"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- End User -->
+                <!-- End User -->
+                <!--- Sidemenu -->
+                <div id="sidebar-menu">
+                    <ul>
+                        <li class="text-muted menu-title">دسته بندی ها</li>
+
+                        <li>
+                            <a href="/Admin1/Dates/Index" class="waves-effect"><i class="zmdi zmdi-time"></i> <span> زمان </span> </a>
+                        </li>
+
+                        <li>
+                            <a href="/Admin1/Masters/Index" class="waves-effect"><i class="zmdi zmdi-graduation-cap"></i> <span>اساتید</span> </a>
+                        </li>
+
+                        <li>
+                            <a href="/Admin1/Lessons/Index" class="waves-effect active"><i class="zmdi zmdi-collection-text"></i> <span>دروس</span> </a>
+                        </li>
+                        <li>
+                            <a href="/Admin1/Logins/Index" class="waves-effect "><i class="fa fa-users"></i> <span>کاربران</span> </a>
+                        </li>
+                        <li>
+                            <a href="/Admin1/Labratoryies/Index" class="waves-effect"><i class=" ti-paint-bucket"></i> <span>آزمایشگاه</span> </a>
+                        </li>
+                        <li>
+                            <a href="/Admin1/MasterDates/Index" class="waves-effect"><i class="zmdi zmdi-calendar"></i> <span>استاد-روز</span> </a>
+                        </li>
+
+                        <li>
+                            <a href="/Admin1/MasterLessons/Index" class="waves-effect"><i class="zmdi zmdi-label"></i> <span>استاد-درس</span> </a>
+                        </li>
+
+
+                        <li class="has_sub">
+                            <a href="javascript:void(0);" class="waves-effect active"><i class="zmdi zmdi-run"></i><span class="label label-warning pull-right">3</span><span> مراحل اجرای الگویتم </span> </a>
+                            <ul class="list-unstyled">
+                                <li><a href="/Admin1/Helps/Create">جدول استادان و روزها</a></li>
+                                <li><a href="/Admin1/Help2/Create">جدول استادان و روزها و درس ها</a></li>
+                                <li><a href="/Admin1/Help2/Tree">فرم درختی</a></li>
+                                <li><a href="/Admin1/Cal_End/Create">جداول نهایی</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Left Sidebar End -->
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="content-page">
+            <!-- Start content -->
+            <div class="content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card-box table-responsive">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="m-b-30">
+                                            <button id="btnNewLesson" class="btn btn-primary waves-effect waves-light">افزودن <i class="fa fa-plus"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th style="text-align:center">#</th>
+                                            <th style="text-align:center">نام درس</th>
+                                            <th style="text-align:center">شماره درس</th>
+                                            <th style="text-align:center">گروه درس</th>
+                                            <th style="text-align:center">ترم درس</th>
+                                            <th style="text-align:center">واحد درس</th>
+                                            <th style="text-align:center">امتیاز درس</th>
+                                            <th style="text-align:center">حذف  /  ویرایش</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var Lesson in Model)
+                                        {
+                                            <tr>
+                                                <td style="text-align:center">@Lesson.LessonId</td>
+                                                <td style="text-align:center">@Lesson.LessonName</td>
+                                                <td style="text-align:center">@Lesson.LessonCode</td>
+                                                <td style="text-align:center">@Lesson.LessonGroup</td>
+                                                <td style="text-align:center">@Lesson.Term</td>
+                                                <td style="text-align:center">@Lesson.Unit</td>
+                                                <td style="text-align:center">@Lesson.Score</td>
+                                                <td style="text-align:center" class="actions">
+                                                    <a href="#" class="on-default remove-row" onclick="deleteLesson(@Lesson.LessonId)">حذف<i style="color:red" class="fa fa-trash-o" onclick="deleteLesson(@Lesson.LessonId)"></i></a>    /
+                                                    <a href="#" class="on-default edit-row" onclick="editLesson(@Lesson.LessonId)">ویرایش<i style="color:lawngreen" class="fa fa-pencil" onclick="editLesson(@Lesson.LessonId)"></i></a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div><!-- end col -->
+                    </div>
+                    <!-- end row -->
+
+
+
+
+                </div> <!-- container -->
+
+            </div> <!-- content -->
+
+
+        </div>
+
+
+        <!-- ============================================================== -->
+        <!-- End Right content here -->
+    </div>
+    <!-- END wrapper -->
+    <!-- END wrapper -->
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body" id="myModalBody">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End Modal -->
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script>
+        $("#btnNewLesson").click(function () {
+
+            $.get("/Admin1/Lessons/Create", function (result) {
+
+                $("#myModal").modal();
+                $("#myModalLabel").html("افزودن  درس جدید");
+                $("#myModalBody").html(result);
+            });
+        });
+
+        function editLesson(id) {
+            $.get("/Admin1/Lessons/Edit/" + id, function (result) {
+                $("#myModal").modal();
+                $("#myModalLabel").html("ویرایش درس");
+                $("#myModalBody").html(result);
+            });
+        }
+
+        function deleteLesson(id) {
+            $.get("/Admin1/Lessons/Delete/" + id, function (result) {
+                $("#myModal").modal();
+                $("#myModalLabel").html("حذف درس");
+                $("#myModalBody").html(result);
+            });
+        }
+    </script>
+
+    <script>
+        var resizefunc = [];
+    </script>
+
+    <!-- jQuery  -->
+    <script src="~/Content/assets/js/jquery.min.js"></script>
+    <script src="~/Content/assets/js/bootstrap-rtl.min.js"></script>
+    <script src="~/Content/assets/js/detect.js"></script>
+    <script src="~/Content/assets/js/fastclick.js"></script>
+    <script src="~/Content/assets/js/jquery.slimscroll.js"></script>
+    <script src="~/Content/assets/js/jquery.blockUI.js"></script>
+    <script src="~/Content/assets/js/waves.js"></script>
+    <script src="~/Content/assets/js/jquery.nicescroll.js"></script>
+    <script src="~/Content/assets/js/jquery.scrollTo.min.js"></script>
+
+    <!-- Datatables-->
+    <script src="~/Content/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Content/assets/plugins/datatables/dataTables.bootstrap.js"></script>
+    <script src="~/Content/assets/plugins/datatables/dataTables.buttons.min.js"></script>
+    <script src="~/Content/assets/plugins/datatables/buttons.bootstrap.min.js"></script>
+    <script src="~/Content/assets/plugins/datatables/jszip.min.js"></script>
+    <script src="~/Content/assets/plugins/datatables/pdfmake.min.js"></script>
+    <script src="~/Content/assets/plugins/datatables/vfs_fonts.js"></script>
+    <script src="~/Content/assets/plugins/datatables/buttons.html5.min.js"></script>
+    <script src="~/Content/assets/plugins/datatables/buttons.print.min.js"></script>
+    <script src="~/Content/assets/plugins/datatables/dataTables.fixedHeader.min.js"></script>
+    <script src="~/Content/assets/plugins/datatables/dataTables.keyTable.min.js"></script>
+    <script src="~/Content/assets/plugins/datatables/dataTables.responsive.min.js"></script>
+    <script src="~/Content/assets/plugins/datatables/responsive.bootstrap.min.js"></script>
+    <script src="~/Content/assets/plugins/datatables/dataTables.scroller.min.js"></script>
+
+    <!-- Datatable init js -->
+    <script src="~/Content/assets/pages/datatables.init.js"></script>
+
+
+    <!-- Sweet Alert js -->
+    <script src="~/Content/assets/plugins/bootstrap-sweetalert/sweet-alert.min.js"></script>
+    <script src="~/Content/assets/pages/jquery.sweet-alert.init.js"></script>
+
+    <!-- App js -->
+    <script src="~/Content/assets/js/jquery.core.js"></script>
+    <script src="~/Content/assets/js/jquery.app.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#datatable').DataTable();
+            $('#datatable-keytable').DataTable({ keys: true });
+            $('#datatable-responsive').DataTable();
+            $('#datatable-scroller').DataTable({ ajax: "assets/plugins/datatables/json/scroller-demo.json", deferRender: true, scrollY: 380, scrollCollapse: true, scroller: true });
+            var table = $('#datatable-fixed-header').DataTable({ fixedHeader: true });
+        });
+        TableManageButtons.init();
+
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+

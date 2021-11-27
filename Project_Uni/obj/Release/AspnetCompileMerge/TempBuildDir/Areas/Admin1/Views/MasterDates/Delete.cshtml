@@ -1,0 +1,77 @@
+﻿@model DataLayer.MasterDate
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h3>آیا میخواهید زمان
+    @foreach(var Date in ViewBag.Date)
+    {
+        if(Model.DateId==Date.DateId)
+        {
+            @Date.DateName
+        }
+    }
+    انتخاب شده توسط استاد
+    @foreach (var Master in ViewBag.Master)
+    {
+        if (Model.MasterCode == Master.MasterCode)
+        {
+            @Master.MasterName
+        }
+    }
+    را حذف کنید؟
+    </h3>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Date.DateName)
+        </dt>
+
+        <dd>
+            @foreach (var Date in ViewBag.Date)
+            {
+                if (Model.DateId == Date.DateId)
+                {
+                    @Date.DateName
+                }
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MasterCode)
+        </dt>
+
+        <dd>
+            @foreach (var Master in ViewBag.Master)
+            {
+                if (Model.MasterCode == Master.MasterCode)
+                {
+                    @Master.MasterName
+                }
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+    </dl>
+
+
+        <div class="form-actions no-color">
+            <input type="submit" value="حذف" class="btn btn-warning" /> |
+            @Html.ActionLink("نمایش لیست زمان های تعیین شده", "Index")
+        </div>
+</div>
+}

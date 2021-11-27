@@ -1,0 +1,50 @@
+﻿@model DataLayer.MasterLesson
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>MasterLesson</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.MasterCode)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.MasterCode)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.LessonCode)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.LessonCode)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Prefer)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Prefer)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.MasterLessonId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

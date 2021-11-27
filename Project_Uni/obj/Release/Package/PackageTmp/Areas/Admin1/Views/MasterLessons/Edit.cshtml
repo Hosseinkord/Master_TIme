@@ -1,0 +1,51 @@
+﻿@model DataLayer.MasterLesson
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MasterLessonId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MasterCode, "نام استاد", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-5">
+                @Html.DropDownListFor(model=>model.MasterCode, null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MasterCode, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LessonCode, "نام درس", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-5">
+                @Html.DropDownListFor(model => model.LessonCode, null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.LessonCode, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Prefer, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.Prefer, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Prefer, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-2">
+                <input type="submit" value="ثبت تغییرات" class="btn btn-purple" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("نمایش لیست دروس هر استاد", "Index")
+</div>

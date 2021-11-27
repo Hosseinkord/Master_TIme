@@ -1,0 +1,58 @@
+﻿@model DataLayer.Cal_End
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Cal_End</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Time)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Time)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Master)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Master)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Lesson)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Lesson)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Number)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Number)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Cal_EndId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

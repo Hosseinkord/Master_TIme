@@ -1,0 +1,72 @@
+﻿@model DataLayer.Lesson
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h3>آيا شما از حذف درس @Model.LessonName مطمئن هستيد؟</h3>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <hr />
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LessonCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LessonCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LessonGroup)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LessonGroup)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LessonName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LessonName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Unit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Unit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Term)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Term)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Score)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Score)
+        </dd>
+
+    </dl>
+
+
+
+        <div class="form-actions no-color">
+            <input type="submit" value="حذف درس" class="btn btn-danger" /> |
+            @Html.ActionLink("نمايش دروس", "Index")
+        </div>
+</div>
+}

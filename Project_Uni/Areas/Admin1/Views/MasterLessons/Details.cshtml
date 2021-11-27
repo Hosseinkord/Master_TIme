@@ -1,0 +1,41 @@
+﻿@model DataLayer.MasterLesson
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>مشخصات</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LessonId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LessonId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MasterId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MasterId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prefer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prefer)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("ویرایش", "Edit", new { id = Model.MasterLessonId }) |
+    @Html.ActionLink("نمایش لیست دروس هر استاد", "Index")
+</p>

@@ -1,0 +1,675 @@
+﻿@model IEnumerable<DataLayer.Labratoryy>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta name="theme-color" content="#fb3449" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
+    <meta name="author" content="Coderthemes">
+
+    <link rel="shortcut icon" href="~/Content/assets/images/favicon.ico">
+
+    <title>سیستم مدیریت و برنامه ریزی ترم دانشگاه</title>
+
+    <!--Morris Chart CSS -->
+    <link rel="stylesheet" href="~/Content/assets/plugins/morris/morris.css">
+
+    <!-- App css -->
+    <link href="~/Content/assets/css/bootstrap-rtl.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/css/core.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/css/components.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/css/pages.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/css/menu.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/css/responsive.css" rel="stylesheet" type="text/css" />
+
+    <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="~/Content/assets/js/modernizr.min.js"></script>
+
+</head>
+
+
+<body class="fixed-left">
+
+    <!-- Begin page -->
+    <div id="wrapper">
+
+        <!-- Top Bar Start -->
+        <div class="topbar">
+
+            <!-- LOGO -->
+            <div class="topbar-left">
+                <a href="#" class="logo">
+                    <span>
+                       مسئول آزمایشگاه
+                        </span><i class="zmdi zmdi-layers"></i>
+                </a>
+            </div>
+
+            <!-- Button mobile view to collapse sidebar menu -->
+            <div class="navbar navbar-default" role="navigation">
+                <div class="container">
+
+                    <!-- Page title -->
+                    <ul class="nav navbar-nav navbar-left">
+                        <li>
+                            <button class="button-menu-mobile open-left">
+                                <i class="zmdi zmdi-menu"></i>
+                            </button>
+                        </li>
+                        <li>
+                            <h4 id="page-title-tour" class="page-title">تعیین وضعیت کلاس آزمایشگاه</h4>
+                        </li>
+                    </ul>
+
+                    <!-- Right(Notification and Searchbox -->
+                </div><!-- end container -->
+            </div><!-- end navbar -->
+        </div>
+        <!-- Top Bar End -->
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="left side-menu">
+            <div class="sidebar-inner slimscrollleft">
+
+
+                <!--- Sidemenu -->
+                <div id="sidebar-menu">
+                    <ul>
+                        <li class="text-muted menu-title">دسته بندی ها</li>
+
+                        <li>
+                            <a href="#" class="waves-effect active"><i class="fa fa-gears "></i> <span> تعیین وضعیت کلاس آزمایشگاه </span> </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <!-- Left Sidebar End -->
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="content-page">
+            <!-- Start content -->
+            <div class="content">
+                <div class="container">
+                    <div class="col-lg-8">
+                        <div class="card-box">
+
+                            <h4 class="header-title m-t-0 m-b-30">روزهای انتخاب شده</h4>
+
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th id="page-title-tour" style="text-align:center">تقویم</th>
+                                            <th style="text-align:center">ساعت اول</th>
+                                            <th style="text-align:center">ساعت دوم</th>
+                                            <th style="text-align:center">ساعت سوم</th>
+                                            <th style="text-align:center">ساعت چهارم</th>
+                                            <th style="text-align:center">ساعت پنجم</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="text-align:center">شنبه</td>
+                                            <td style="text-align:center">
+                                                @foreach (var md in Model)
+                                                {
+                                                    if (md.DateId == 1 && md.Empty==false)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-primary m-b-5">تعیین نشده<i class="fa fa-plus-circle"></i> </button>
+                                                    }
+                                                    if (md.DateId == 1 && md.Empty == true)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-success m-b-5">پر است <i class="fa fa-check-circle"></i> </button>
+                                                    }
+                                                }
+                                            </td>
+                                            <td style="text-align:center">
+                                                @foreach (var md in Model)
+                                                {
+                                                    if (md.DateId == 2 && md.Empty == false)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-primary m-b-5">تعیین نشده<i class="fa fa-plus-circle"></i> </button>
+                                                    }
+                                                    if (md.DateId == 2 && md.Empty == true)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-success m-b-5">پر است <i class="fa fa-check-circle"></i> </button>
+                                                    }
+                                                }
+                                            </td>
+                                            <td style="text-align:center">
+                                                @foreach (var md in Model)
+                                                {
+                                                    if (md.DateId == 3 && md.Empty == false)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-primary m-b-5">تعیین نشده<i class="fa fa-plus-circle"></i> </button>
+                                                    }
+                                                    if (md.DateId == 3 && md.Empty == true)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-success m-b-5">پر است <i class="fa fa-check-circle"></i> </button>
+                                                    }
+                                                }
+                                            </td>
+                                            <td style="text-align:center">
+                                                @foreach (var md in Model)
+                                                {
+                                                    if (md.DateId == 4 && md.Empty == false)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-primary m-b-5">تعیین نشده<i class="fa fa-plus-circle"></i> </button>
+                                                    }
+                                                    if (md.DateId == 4 && md.Empty == true)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-success m-b-5">پر است <i class="fa fa-check-circle"></i> </button>
+                                                    }
+                                                }
+                                            </td>
+                                            <td style="text-align:center">
+                                                @foreach (var md in Model)
+                                                {
+                                                    if (md.DateId == 5 && md.Empty == false)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-primary m-b-5">تعیین نشده<i class="fa fa-plus-circle"></i> </button>
+                                                    }
+                                                    if (md.DateId == 5 && md.Empty == true)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-success m-b-5">پر است <i class="fa fa-check-circle"></i> </button>
+                                                    }
+                                                }
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">یکشنبه</td>
+                                            <td style="text-align:center">
+                                                @foreach (var md in Model)
+                                                {
+                                                    if (md.DateId == 6 && md.Empty == false)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-primary m-b-5">تعیین نشده<i class="fa fa-plus-circle"></i> </button>
+                                                    }
+                                                    if (md.DateId == 6 && md.Empty == true)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-success m-b-5">پر است <i class="fa fa-check-circle"></i> </button>
+                                                    }
+                                                }
+                                            </td>
+                                            <td style="text-align:center">
+                                                @foreach (var md in Model)
+                                                {
+                                                    if (md.DateId == 7 && md.Empty == false)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-primary m-b-5">تعیین نشده<i class="fa fa-plus-circle"></i> </button>
+                                                    }
+                                                    if (md.DateId == 7 && md.Empty == true)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-success m-b-5">پر است <i class="fa fa-check-circle"></i> </button>
+                                                    }
+                                                }
+                                            </td>
+                                            <td style="text-align:center">
+                                                @foreach (var md in Model)
+                                                {
+                                                    if (md.DateId == 8 && md.Empty == false)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-primary m-b-5">تعیین نشده<i class="fa fa-plus-circle"></i> </button>
+                                                    }
+                                                    if (md.DateId == 8 && md.Empty == true)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-success m-b-5">پر است <i class="fa fa-check-circle"></i> </button>
+                                                    }
+                                                }
+                                            </td>
+                                            <td style="text-align:center">
+                                                @foreach (var md in Model)
+                                                {
+                                                    if (md.DateId == 9 && md.Empty == false)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-primary m-b-5">تعیین نشده<i class="fa fa-plus-circle"></i> </button>
+                                                    }
+                                                    if (md.DateId == 9 && md.Empty == true)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-success m-b-5">پر است <i class="fa fa-check-circle"></i> </button>
+                                                    }
+                                                }
+                                            </td>
+                                            <td style="text-align:center">
+                                                @foreach (var md in Model)
+                                                {
+                                                    if (md.DateId == 10 && md.Empty == false)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-primary m-b-5">تعیین نشده<i class="fa fa-plus-circle"></i> </button>
+                                                    }
+                                                    if (md.DateId == 10 && md.Empty == true)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-success m-b-5">پر است <i class="fa fa-check-circle"></i> </button>
+                                                    }
+                                                }
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">دوشنبه</td>
+                                            <td style="text-align:center">
+                                                @foreach (var md in Model)
+                                                {
+                                                    if (md.DateId == 11 && md.Empty == false)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-primary m-b-5">تعیین نشده<i class="fa fa-plus-circle"></i> </button>
+                                                    }
+                                                    if (md.DateId == 11 && md.Empty == true)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-success m-b-5">پر است <i class="fa fa-check-circle"></i> </button>
+                                                    }
+                                                }
+                                            </td>
+                                            <td style="text-align:center">
+                                                @foreach (var md in Model)
+                                                {
+                                                    if (md.DateId == 12 && md.Empty == false)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-primary m-b-5">تعیین نشده<i class="fa fa-plus-circle"></i> </button>
+                                                    }
+                                                    if (md.DateId == 12 && md.Empty == true)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-success m-b-5">پر است <i class="fa fa-check-circle"></i> </button>
+                                                    }
+                                                }
+                                            </td>
+                                            <td style="text-align:center">
+                                                @foreach (var md in Model)
+                                                {
+                                                    if (md.DateId == 13 && md.Empty == false)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-primary m-b-5">تعیین نشده<i class="fa fa-plus-circle"></i> </button>
+                                                    }
+                                                    if (md.DateId == 13 && md.Empty == true)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-success m-b-5">پر است <i class="fa fa-check-circle"></i> </button>
+                                                    }
+                                                }
+                                            </td>
+                                            <td style="text-align:center">
+                                                @foreach (var md in Model)
+                                                {
+                                                    if (md.DateId == 14 && md.Empty == false)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-primary m-b-5">تعیین نشده<i class="fa fa-plus-circle"></i> </button>
+                                                    }
+                                                    if (md.DateId == 14 && md.Empty == true)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-success m-b-5">پر است <i class="fa fa-check-circle"></i> </button>
+                                                    }
+                                                }
+                                            </td>
+                                            <td style="text-align:center">
+                                                @foreach (var md in Model)
+                                                {
+                                                    if (md.DateId == 15 && md.Empty == false)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-primary m-b-5">تعیین نشده<i class="fa fa-plus-circle"></i> </button>
+                                                    }
+                                                    if (md.DateId == 15 && md.Empty == true)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-success m-b-5">پر است <i class="fa fa-check-circle"></i> </button>
+                                                    }
+                                                }
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">سه شنبه</td>
+                                            <td style="text-align:center">
+                                                @foreach (var md in Model)
+                                                {
+                                                    if (md.DateId == 16 && md.Empty == false)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-primary m-b-5">تعیین نشده<i class="fa fa-plus-circle"></i> </button>
+                                                    }
+                                                    if (md.DateId == 16 && md.Empty == true)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-success m-b-5">پر است <i class="fa fa-check-circle"></i> </button>
+                                                    }
+                                                }
+                                            </td>
+                                            <td style="text-align:center">
+                                                @foreach (var md in Model)
+                                                {
+                                                    if (md.DateId == 17 && md.Empty == false)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-primary m-b-5">تعیین نشده<i class="fa fa-plus-circle"></i> </button>
+                                                    }
+                                                    if (md.DateId == 17 && md.Empty == true)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-success m-b-5">پر است <i class="fa fa-check-circle"></i> </button>
+                                                    }
+                                                }
+                                            </td>
+                                            <td style="text-align:center">
+                                                @foreach (var md in Model)
+                                                {
+                                                    if (md.DateId == 18 && md.Empty == false)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-primary m-b-5">تعیین نشده<i class="fa fa-plus-circle"></i> </button>
+                                                    }
+                                                    if (md.DateId == 18 && md.Empty == true)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-success m-b-5">پر است <i class="fa fa-check-circle"></i> </button>
+                                                    }
+                                                }
+                                            </td>
+                                            <td style="text-align:center">
+                                                @foreach (var md in Model)
+                                                {
+                                                    if (md.DateId == 19 && md.Empty == false)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-primary m-b-5">تعیین نشده<i class="fa fa-plus-circle"></i> </button>
+                                                    }
+                                                    if (md.DateId == 19 && md.Empty == true)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-success m-b-5">پر است <i class="fa fa-check-circle"></i> </button>
+                                                    }
+                                                }
+                                            </td>
+                                            <td style="text-align:center">
+                                                @foreach (var md in Model)
+                                                {
+                                                    if (md.DateId == 20 && md.Empty == false)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-primary m-b-5">تعیین نشده<i class="fa fa-plus-circle"></i> </button>
+                                                    }
+                                                    if (md.DateId == 20 && md.Empty == true)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-success m-b-5">پر است <i class="fa fa-check-circle"></i> </button>
+                                                    }
+                                                }
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">چهارشنبه</td>
+                                            <td style="text-align:center">
+                                                @foreach (var md in Model)
+                                                {
+                                                    if (md.DateId == 21 && md.Empty == false)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-primary m-b-5">تعیین نشده<i class="fa fa-plus-circle"></i> </button>
+                                                    }
+                                                    if (md.DateId == 21 && md.Empty == true)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-success m-b-5">پر است <i class="fa fa-check-circle"></i> </button>
+                                                    }
+                                                }
+                                            </td>
+                                            <td style="text-align:center">
+                                                @foreach (var md in Model)
+                                                {
+                                                    if (md.DateId == 22 && md.Empty == false)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-primary m-b-5">تعیین نشده<i class="fa fa-plus-circle"></i> </button>
+                                                    }
+                                                    if (md.DateId == 22 && md.Empty == true)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-success m-b-5">پر است <i class="fa fa-check-circle"></i> </button>
+                                                    }
+                                                }
+                                            </td>
+                                            <td style="text-align:center">
+                                                @foreach (var md in Model)
+                                                {
+                                                    if (md.DateId == 23 && md.Empty == false)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-primary m-b-5">تعیین نشده<i class="fa fa-plus-circle"></i> </button>
+                                                    }
+                                                    if (md.DateId == 23 && md.Empty == true)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-success m-b-5">پر است <i class="fa fa-check-circle"></i> </button>
+                                                    }
+                                                }
+                                            </td>
+                                            <td style="text-align:center">
+                                                @foreach (var md in Model)
+                                                {
+                                                    if (md.DateId == 24 && md.Empty == false)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-primary m-b-5">تعیین نشده<i class="fa fa-plus-circle"></i> </button>
+                                                    }
+                                                    if (md.DateId == 24 && md.Empty == true)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-success m-b-5">پر است <i class="fa fa-check-circle"></i> </button>
+                                                    }
+                                                }
+                                            </td>
+                                            <td style="text-align:center">
+                                                @foreach (var md in Model)
+                                                {
+                                                    if (md.DateId == 25 && md.Empty == false)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-primary m-b-5">تعیین نشده<i class="fa fa-plus-circle"></i> </button>
+                                                    }
+                                                    if (md.DateId == 25 && md.Empty == true)
+                                                    {
+                                                        <button onclick="editMD1(@md.LabratorId)" class="btn btn-icon waves-effect waves-light btn-success m-b-5">پر است <i class="fa fa-check-circle"></i> </button>
+                                                    }
+                                                }
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div><!-- end col -->
+
+                </div>
+                <!-- end row -->
+
+            </div> <!-- container -->
+
+        </div> <!-- content -->
+
+
+    </div>
+
+
+    <!-- ============================================================== -->
+    <!-- End Right content here -->
+    <!-- ============================================================== -->
+    <!-- Right Sidebar -->
+    <div class="side-bar right-bar">
+        <a href="javascript:void(0);" class="right-bar-toggle">
+            <i class="zmdi zmdi-close-circle-o"></i>
+        </a>
+        <h4 class="">اعلانات</h4>
+        <div class="notification-list nicescroll">
+            <ul class="list-group list-no-border user-list">
+                <li class="list-group-item">
+                    <a href="#" class="user-list-item">
+                        <div class="avatar">
+                            <img src="~/Content/assets/images/users/avatar-2.jpg" alt="">
+                        </div>
+                        <div class="user-desc">
+                            <span class="name">کاربر شماره یک</span>
+                            <span class="desc">متن کاربر شماره یک</span>
+                            <span class="time">2 ساعت قبل</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#" class="user-list-item">
+                        <div class="icon bg-info">
+                            <i class="zmdi zmdi-account"></i>
+                        </div>
+                        <div class="user-desc">
+                            <span class="name">ثبت نام جدید</span>
+                            <span class="desc">کاربری جدید در سایت ثبت نام کرده است</span>
+                            <span class="time">5 ساعت قبل</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#" class="user-list-item">
+                        <div class="icon bg-pink">
+                            <i class="zmdi zmdi-comment"></i>
+                        </div>
+                        <div class="user-desc">
+                            <span class="name">پیام جدید</span>
+                            <span class="desc">متن پیام جدید از کاریی جدید</span>
+                            <span class="time">1 روز قبل</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="list-group-item active">
+                    <a href="#" class="user-list-item">
+                        <div class="avatar">
+                            <img src="~/Content/assets/images/users/avatar-3.jpg" alt="">
+                        </div>
+                        <div class="user-desc">
+                            <span class="name">کاربر شماره 2</span>
+                            <span class="desc">با سلام من یک متن کاملا آزمایشی هستم</span>
+                            <span class="time">2 روز قبل</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="list-group-item active">
+                    <a href="#" class="user-list-item">
+                        <div class="icon bg-warning">
+                            <i class="zmdi zmdi-settings"></i>
+                        </div>
+                        <div class="user-desc">
+                            <span class="name">تنظیمات</span>
+                            <span class="desc">تنظیمات جدید برای دسترسی و راحتی شما موجود است</span>
+                            <span class="time">1 روز قبل</span>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <!-- /Right-bar -->
+    <!-- END wrapper -->
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body" id="myModalBody">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End Modal -->
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script>
+        $("#btnNew11").click(function () {
+
+            $.get("/AdminMasters/MasterDates/Create/", function (result) {
+
+                $("#myModal").modal();
+                $("#myModalLabel").html("افزودن  زمان جدید");
+                $("#myModalBody").html(result);
+            });
+        });
+
+        function editMD1(id) {
+            $.get("/Lab/Labratoryies/Edit/" + id, function (result) {
+                $("#myModal").modal();
+                $("#myModalLabel").html("ثبت وضعیت");
+                $("#myModalBody").html(result);
+            });
+        }
+    </script>
+
+
+    <script>
+        var resizefunc = [];
+    </script>
+
+    <!-- jQuery  -->
+    <script src="~/Content/assets/js/jquery.min.js"></script>
+    <script src="~/Content/assets/js/bootstrap-rtl.min.js"></script>
+    <script src="~/Content/assets/js/detect.js"></script>
+    <script src="~/Content/assets/js/fastclick.js"></script>
+    <script src="~/Content/assets/js/jquery.blockUI.js"></script>
+    <script src="~/Content/assets/js/waves.js"></script>
+    <script src="~/Content/assets/js/jquery.nicescroll.js"></script>
+    <script src="~/Content/assets/js/jquery.slimscroll.js"></script>
+    <script src="~/Content/assets/js/jquery.scrollTo.min.js"></script>
+
+    <!-- KNOB JS -->
+    <!--[if IE]>
+    <script type="text/javascript" src="assets/plugins/jquery-knob/excanvas.js"></script>
+    <![endif]-->
+    <script src="~/Content/assets/plugins/jquery-knob/jquery.knob.js"></script>
+
+    <!--Morris Chart-->
+    <script src="~/Content/assets/plugins/morris/morris.min.js"></script>
+    <script src="~/Content/assets/plugins/raphael/raphael-min.js"></script>
+
+    <!-- Dashboard init -->
+    <script src="~/Content/assets/pages/jquery.dashboard.js"></script>
+
+    <!-- App js -->
+    <script src="~/Content/assets/js/jquery.core.js"></script>
+    <script src="~/Content/assets/js/jquery.app.js"></script>
+    <script src="~/Content/assets/plugins/hopscotch/js/hopscotch.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            var placementRight = 'right';
+            var placementLeft = 'left';
+
+            // Define the tour!
+            var tour = {
+                id: "my-intro",
+                steps: [
+                    {
+                        target: "logo-tour",
+                        title: "متن سربرگ",
+                        content: "متن اصلی برای نمایش",
+                        placement: placementLeft,
+                        yOffset: 10
+                    },
+                    {
+                        target: 'page-title-tour',
+                        title: "تنظیمات کاربری",
+                        content: "از اینجا وارد تنظیمات کاربری خود شوید",
+                        placement: 'bottom',
+                        zindex: 999,
+                        backgroundcolor: red
+                    },
+                    {
+                        target: 'notification-tour',
+                        title: "متن سربرگ",
+                        content: "متن توصیفی قسمت نمایش",
+                        placement: 'bottom',
+                        zindex: 999
+                    }
+                ],
+                showPrevButton: true
+            };
+
+            // Start the tour!
+            hopscotch.startTour(tour);
+        });
+    </script>
+</body>
+</html>
+
+
